@@ -96,5 +96,3 @@ Robust handling for:
 
 ---
 
-## 📄 License
-MIT License © 2025 — Open for research and educational use.
