@@ -1,0 +1,36 @@
+# Jira Scraper Configuration
+base_url: "https://issues.apache.org/jira"
+
+projects:
+  - KAFKA
+  - SPARK
+  - HADOOP
+
+batch_size: 100  
+max_retries: 5   
+backoff_factor: 2  
+timeout: 30  
+
+output_dir: "data/output"
+checkpoint_dir: "data/checkpoints"
+log_dir: "logs"
+
+requests_per_minute: 60
+respect_retry_after: true
+
+fields:
+  - summary
+  - description
+  - status
+  - priority
+  - assignee
+  - reporter
+  - created
+  - updated
+  - labels
+  - components
+
+task_types:
+  - summarization
+  - classification
+  - question_answering

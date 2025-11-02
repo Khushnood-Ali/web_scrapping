@@ -1,0 +1,8 @@
+strategy,description,benefit,tradeoff
+Concurrent Requests,Use asyncio/aiohttp for parallel API calls,5-10x faster scraping for multiple projects,"More complex code, need rate limiting coordination"
+Batch Processing,Process issues in batches (100-200 per API call),Reduces number of API calls by 50-100x,Larger memory footprint per request
+Incremental Updates,Only scrape issues updated since last run,90%+ reduction in data fetched for updates,"Need to track timestamps, more complex logic"
+Connection Pooling,Reuse HTTP connections via requests.Session,15-20% faster requests due to TCP reuse,Minimal - best practice
+Buffered Writing,Write JSONL in batches (100 records at a time),Reduces I/O operations by 99%,Small risk of data loss if crash occurs
+Field Filtering,Only request needed fields from Jira API,30-40% smaller response payloads,Need to know exact field names upfront
+Compression,Enable gzip compression for API responses,50-70% bandwidth reduction,Slight CPU overhead for decompression

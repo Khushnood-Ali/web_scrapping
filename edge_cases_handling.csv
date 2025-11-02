@@ -1,0 +1,13 @@
+category,case,handling,implementation
+Network Errors,Connection Timeout,Retry with exponential backoff (max 5 attempts),"requests.Session with timeout=30, urllib3.Retry"
+Network Errors,HTTP 429 (Rate Limit),"Exponential backoff with jitter, respect Retry-After header",Custom retry logic checking response headers
+Network Errors,HTTP 5xx Server Error,Retry up to 5 times with exponential backoff,"Retry adapter with status_forcelist=[500,502,503,504]"
+Data Issues,Empty/Null Description,"Use empty string, skip certain tasks (e.g., summarization)",if not text: return '' pattern in transformer
+Data Issues,Malformed JSON Response,"Log error, skip record, continue processing",try/except json.JSONDecodeError with logging
+Data Issues,HTML in Text Fields,"Strip HTML tags, decode entities, normalize whitespace","re.sub(r'<[^>]+>', ''), html.unescape()"
+Data Issues,Missing Comments,"Treat as empty list, continue processing","comments.get('comments', [])"
+Pagination,Inconsistent Total Count,Use isLast field or compare startAt with total,Check both conditions in pagination loop
+Pagination,Empty Results Page,Break pagination loop gracefully,if not issues: break
+Recovery,Process Interruption,"Save checkpoint after each batch, resume from last position",CheckpointManager with atomic file writes
+Recovery,Corrupted Checkpoint,Fallback to starting from beginning with warning,try/except on load_checkpoint with logging
+Authentication,Invalid/Expired Token,"Clear error message, exit gracefully","Check HTTP 401/403, raise custom AuthError"

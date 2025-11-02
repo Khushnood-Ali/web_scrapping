@@ -1,0 +1,6 @@
+project_key,name,description,reason
+KAFKA,Apache Kafka,Distributed streaming platform,"Very active, diverse issue types, rich discussions"
+SPARK,Apache Spark,Unified analytics engine for big data,"Large volume of issues, technical depth, good for LLM training"
+HADOOP,Apache Hadoop,Framework for distributed storage and processing,"Long history, varied issue complexity, extensive metadata"
+CASSANDRA,Apache Cassandra,Distributed NoSQL database,"Active development, detailed technical discussions"
+AIRFLOW,Apache Airflow,"Platform to programmatically author, schedule and monitor workflows","Modern project, good documentation in issues"
