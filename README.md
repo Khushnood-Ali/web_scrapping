@@ -1,4 +1,4 @@
-# 🧩 Jira Scraper & LLM Data Preparation Pipeline
+# 🧩 Web Scraping Tutor
 
 ## 📘 Overview
 This repository automates data collection from Apache Jira projects and transforms it into structured datasets for **LLM training tasks** such as summarization, classification, and question-answering.
